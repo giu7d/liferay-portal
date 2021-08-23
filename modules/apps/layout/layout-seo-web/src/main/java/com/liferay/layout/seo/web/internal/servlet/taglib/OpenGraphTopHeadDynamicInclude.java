@@ -37,7 +37,6 @@ import com.liferay.layout.seo.service.LayoutSEOEntryLocalService;
 import com.liferay.layout.seo.service.LayoutSEOSiteLocalService;
 import com.liferay.layout.seo.template.LayoutSEOTemplateProcessor;
 import com.liferay.layout.seo.web.internal.configuration.FFLayoutTranslatedLanguagesConfiguration;
-import com.liferay.layout.seo.web.internal.constants.LayoutSEOTemplateConstants;
 import com.liferay.layout.seo.web.internal.util.OpenGraphImageProvider;
 import com.liferay.layout.seo.web.internal.util.TitleProvider;
 import com.liferay.petra.reflect.ReflectionUtil;
@@ -191,8 +190,7 @@ public class OpenGraphTopHeadDynamicInclude extends BaseDynamicInclude {
 
 			Optional<String> descriptionOptional = _getMappedValueOptional(
 				layout.getTypeSettingsProperty(
-					"mapped-openGraphDescription",
-					LayoutSEOTemplateConstants.DESCRIPTION_DEFAULT_TEMPLATE),
+					"mapped-openGraphDescription", "${description}"),
 				infoItemFieldValues, themeDisplay.getLocale());
 
 			String description = descriptionOptional.orElseGet(
@@ -228,8 +226,7 @@ public class OpenGraphTopHeadDynamicInclude extends BaseDynamicInclude {
 
 			Optional<String> titleOptional = _getMappedValueOptional(
 				layout.getTypeSettingsProperty(
-					"mapped-openGraphTitle",
-					LayoutSEOTemplateConstants.TITLE_DEFAULT_TEMPLATE),
+					"mapped-openGraphTitle", "${title}"),
 				infoItemFieldValues, themeDisplay.getLocale());
 
 			String title = titleOptional.orElseGet(
