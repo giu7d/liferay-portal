@@ -52,7 +52,7 @@ public class LayoutSEOUpgradeProcess extends UpgradeProcess {
 		UnicodeProperties unicodeProperties =
 			layout.getTypeSettingsProperties();
 
-		for (String key : _MAPPED_ATTRIBUTE_KEYS) {
+		for (String key : _KEYS) {
 			String value = unicodeProperties.getProperty(key);
 
 			if (Validator.isNotNull(value) &&
@@ -70,7 +70,7 @@ public class LayoutSEOUpgradeProcess extends UpgradeProcess {
 		_layoutLocalService.updateLayout(layout);
 	}
 
-	private static final String[] _MAPPED_ATTRIBUTE_KEYS = {
+	private static final String[] _KEYS = {
 		"mapped-description", "mapped-openGraphDescription",
 		"mapped-openGraphImage", "mapped-openGraphImageAlt",
 		"mapped-openGraphTitle", "mapped-title"
